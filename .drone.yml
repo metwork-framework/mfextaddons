@@ -1,0 +1,38 @@
+trigger_common: &trigger_common
+  image: metwork/drone-downstream-specific-image:${DRONE_BRANCH}
+  pull: true
+  secrets: [ downstream_token, downstream_server ]
+  
+
+pipeline:
+  trigger_master:
+    <<: *trigger_common
+    repositories:
+      - metwork-framework/mfextaddon_mapserver@master
+      - metwork-framework/mfextaddon_vim@master
+      - metwork-framework/mfextaddon_scientific@master
+      - metwork-framework/docker-mfextaddon_python3_ia-centos7-buildimage@master
+      - metwork-framework/mfextaddon_python3_ia@master
+    when:
+      branch: master
+    params:
+      - FORCED_OS_VERSION=${OS_VERSION}
+  trigger_integration:
+    <<: *trigger_common
+    repositories:
+      - metwork-framework/mfextaddon_mapserver@integration
+      - metwork-framework/mfextaddon_vim@integration
+      - metwork-framework/mfextaddon_scientific@integration
+      - metwork-framework/docker-mfextaddon_python3_ia-centos7-buildimage@integration
+      - metwork-framework/mfextaddon_python3_ia@integration
+    when:
+      branch: integration
+    params:
+      - FORCED_OS_VERSION=${OS_VERSION}
+
+matrix:
+  OS_VERSION:
+    - centos6
+    - centos7
+
+branches: [ master, integration, ci_*, pci_* ]

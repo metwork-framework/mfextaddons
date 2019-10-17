@@ -1,6 +1,6 @@
 pipeline:
   trigger:
-    image: metwork/drone-downstream-specific-image:${DRONE_BRANCH}
+    image: metwork/drone-downstream-specific-image:latest
     pull: true
     secrets: [ downstream_token, downstream_server ]
     repositories:

@@ -4,7 +4,7 @@ pipeline:
     pull: true
     secrets: [ downstream_token, downstream_server ]
     repositories:
-      - etwork-framework/mfextaddon_python2@${DRONE_BRANCH}
+      - metwork-framework/mfextaddon_python2@${DRONE_BRANCH}
       - metwork-framework/mfextaddon_mapserver@${DRONE_BRANCH}
       - metwork-framework/mfextaddon_vim@${DRONE_BRANCH}
       - metwork-framework/mfextaddon_scientific@${DRONE_BRANCH}

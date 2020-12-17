@@ -8,6 +8,10 @@ pipeline:
       - metwork-framework/mfextaddon_mapserver@${DRONE_BRANCH}
       - metwork-framework/mfextaddon_vim@${DRONE_BRANCH}
       - metwork-framework/mfextaddon_scientific@${DRONE_BRANCH}
+      - metwork-framework/mfextaddon_radartools@${DRONE_BRANCH}
+      - metwork-framework/mfextaddon_soprano@${DRONE_BRANCH}
+      - metwork-framework/mfextaddon_rabbitmq@${DRONE_BRANCH}
+      - metwork-framework/mfbus@${DRONE_BRANCH}
       - metwork-framework/docker-mfextaddon_python3_ia-centos7-buildimage@${DRONE_BRANCH}
       - metwork-framework/mfextaddon_python3_ia@${DRONE_BRANCH}
     when:
